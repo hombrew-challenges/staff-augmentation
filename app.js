@@ -31,6 +31,7 @@ fs.readFile('./PeopleToRate2.txt', 'utf8', function (err, data) {
 	// filter data by country
 
 	const profilesFilteredByCountry = profiles.filter(currentProfile => {
+		if (countries.length < 1) return true;
 		let profileCountryOk = false;
 		for(let ct of countries) {
 			let cpct = currentProfile.geographicArea.toLowerCase().indexOf(ct);
@@ -44,6 +45,7 @@ fs.readFile('./PeopleToRate2.txt', 'utf8', function (err, data) {
 	// filter data by role
 
 	const profilesFilteredByRole = profilesFilteredByCountry.filter(currentProfile => {
+		if (keywords.length < 1) return true;
 		let profileRoleOk = false;
 		for(let kw of keywords) {
 			let cpcr = currentProfile.currentRole.toLowerCase().indexOf(kw);
@@ -56,7 +58,7 @@ fs.readFile('./PeopleToRate2.txt', 'utf8', function (err, data) {
 
 	// order data by number of recomendations
 
-	let profilesOrderedByRec = profilesFilteredByRole.sort((a,b) => {
+	const profilesOrderedByRec = profilesFilteredByRole.sort((a,b) => {
 		if (parseInt(a.numberOfRecommendations) < parseInt(b.numberOfRecommendations))
 			return 1;
 		if (parseInt(a.numberOfRecommendations) > parseInt(b.numberOfRecommendations))
