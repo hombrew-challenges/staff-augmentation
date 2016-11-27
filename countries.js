@@ -1,0 +1,22 @@
+module.exports = [
+	'argentina',
+	'bolivia',
+	'brasil',
+	'chile',
+	'colombia',
+	'costa rica',
+	'cuba',
+	'ecuador',
+	'el salvador',
+	'guatemala',
+	'haití',
+	'honduras',
+	'méxico',
+	'nicaragua',
+	'panamá',
+	'paraguay',
+	'perú',
+	'república dominicana',
+	'uruguay',
+	'venezuela'
+];
